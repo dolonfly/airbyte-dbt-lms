@@ -1,0 +1,22 @@
+
+version: 2
+
+models:
+  - name: lms_all_courses_available
+    description: "所有有效的课程"
+
+    columns:
+      - name: id
+        description: This is a unique identifier for a courses
+        tests:
+          - unique
+          - not_null
+
+      - name: name
+        description: courses name
+      - name: workflow_state
+        description: workflow_state
+      - name: created_at
+        description: created_at
+      - name: updated_at
+        description: updated_at

@@ -1,0 +1,15 @@
+
+version: 2
+sources:
+  - name: lms
+    description: These are the tables that our extraction software manages most likely through batch jobs. 
+    tables:
+      - name: _airbyte_raw_users
+      - name: _airbyte_raw_courses
+models:
+  - name: _airbyte_raw_users
+    description: "A starter dbt model"
+
+  - name: _airbyte_raw_courses
+    description: "A starter dbt model"
+    
