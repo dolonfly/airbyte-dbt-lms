@@ -4,7 +4,8 @@ with courses as (
 
 
 final as (
-    select id,`name`,workflow_state,created_at,updated_at from courses where workflow_state='available'
+    select id,name,workflow_state,created_at,updated_at from courses
+    --  where workflow_state="available"
 )
 
 select * from final

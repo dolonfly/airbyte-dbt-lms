@@ -12,14 +12,22 @@ flattened_json_data AS (
     -- JSON_EXTRACT(_airbyte_data,'$.created_at') AS created_at,
     -- JSON_EXTRACT(_airbyte_data,'$.deleted_at') AS deleted_at,
     -- JSON_EXTRACT(_airbyte_data,'$.updated_at') AS updated_at
-    _airbyte_data.JSONExtractValue('$.id') AS id,
-    _airbyte_data.JSONExtractValue('$.name') AS user_name,
-    _airbyte_data.JSONExtractValue('$.uuid') AS uuid,
-    _airbyte_data.JSONExtractValue('$.phone') AS phone,
-    _airbyte_data.JSONExtractValue('$.lti_id') AS lti_id,
-    _airbyte_data.JSONExtractValue('$.created_at') AS created_at,
-    _airbyte_data.JSONExtractValue('$.deleted_at') AS deleted_at,
-    _airbyte_data.JSONExtractValue('$.updated_at') AS updated_at
+    -- _airbyte_data.JSONExtractValue('$.id') AS id,
+    -- _airbyte_data.JSONExtractValue('$.name') AS user_name,
+    -- _airbyte_data.JSONExtractValue('$.uuid') AS uuid,
+    -- _airbyte_data.JSONExtractValue('$.phone') AS phone,
+    -- _airbyte_data.JSONExtractValue('$.lti_id') AS lti_id,
+    -- _airbyte_data.JSONExtractValue('$.created_at') AS created_at,
+    -- _airbyte_data.JSONExtractValue('$.deleted_at') AS deleted_at,
+    -- _airbyte_data.JSONExtractValue('$.updated_at') AS updated_at
+                _airbyte_data -> 'id'         as id,
+                _airbyte_data -> 'name'       as user_name,
+                _airbyte_data -> 'uuid'       as uuid,
+                _airbyte_data -> 'phone'      as phone,
+                _airbyte_data -> 'lti_id'     as lti_id,
+                _airbyte_data -> 'created_at' as created_at,
+                _airbyte_data -> 'deleted_at' as deleted_at,
+                _airbyte_data -> 'updated_at' as updated_at
   FROM source
 )
 

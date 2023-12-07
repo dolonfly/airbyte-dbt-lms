@@ -9,11 +9,17 @@ flattened_json_data AS (
     -- JSON_EXTRACT(_airbyte_data,'$.workflow_state') AS workflow_state,
     -- JSON_EXTRACT(_airbyte_data,'$.created_at') AS created_at,
     -- JSON_EXTRACT(_airbyte_data,'$.updated_at') AS updated_at
-    _airbyte_data.JSONExtractValue('$.id') AS id,
-    _airbyte_data.JSONExtractValue('$.name') AS name,
-    _airbyte_data.JSONExtractValue('$.workflow_state') AS workflow_state,
-    _airbyte_data.JSONExtractValue('$.created_at') AS created_at,
-    _airbyte_data.JSONExtractValue('$.updated_at') AS updated_at
+    -- _airbyte_data.JSONExtractValue('$.id') AS id,
+    -- _airbyte_data.JSONExtractValue('$.name') AS name,
+    -- _airbyte_data.JSONExtractValue('$.workflow_state') AS workflow_state,
+    -- _airbyte_data.JSONExtractValue('$.created_at') AS created_at,
+    -- _airbyte_data.JSONExtractValue('$.updated_at') AS updated_at
+
+                _airbyte_data -> 'id'         as id,
+                _airbyte_data -> 'name'       as name,
+                _airbyte_data -> 'workflow_state'       as workflow_state,
+                _airbyte_data -> 'created_at'      as created_at,
+                _airbyte_data -> 'updated_at'     as updated_at
   FROM source
 )
 

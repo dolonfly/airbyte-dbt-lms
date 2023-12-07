@@ -32,6 +32,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   airbyte_dbt_lms:
+    materialized: table
+    staging:
+      materialized: view
+      tags: ["staging","hourly"]
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
